@@ -1,4 +1,22 @@
-node {
+#!/usr/bin/groovy
+
+pipeline {
+  agent any
+  stages {
+    stage ('Build') {
+      steps {
+        sh 'mvn clean install -DskipTests=true'
+        /echo 'myproject'/
+      }
+    }
+  }
+}
+
+
+
+
+
+/*node {
   checkout scm
   env.PATH = "${tool 'Maven3'}/bin:${env.PATH}"
   stage('Package') {
@@ -46,4 +64,4 @@ node {
       junit '**/target/surefire-reports/*.xml'
     }
   }
-}
+}*/
